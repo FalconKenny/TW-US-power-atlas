@@ -70,11 +70,30 @@ const pages = ["index.html", "taiwan.html", "americas.html", "about.html"];
       checks.push(["美國地圖州路徑", q("#usmap .region") >= 50]);
       checks.push(["美國電源結構 mixbar", q("#usMix .mixbar i") === 7]);
       checks.push(["州總表 51 列", q("#usTblBody tr") === 51]);
+      checks.push(["加拿大總表 13 列", q("#caTblBody tr") === 13]);
+      checks.push(["中美洲總表 14 列", q("#ctTblBody tr") === 14]);
+      checks.push(["南美洲總表 12 列", q("#saTblBody tr") === 12]);
+      checks.push(["區域切換按鈕 4 個", q("#amRegionTabs .cat-tab") === 4]);
       checks.push(["每週供需圖", q("#usWeekly svg") === 1]);
       checks.push(["趨勢圖", q("#usTrendFull svg") === 1]);
       checks.push(["電網速覽 8 項", q("#gridList li") === 8]);
       checks.push(["美洲八國卡", q("#ctryGridAll .ctry-card") === 8]);
       checks.push(["州選單", q("#usSelect option") === 52]);
+
+      /* 切換各區域，驗證 lazy init 的地圖 */
+      dom.window.PA_setAmRegion("canada");
+      dom.window.PA_setAmRegion("central");
+      dom.window.PA_setAmRegion("south");
+      await new Promise((r) => setTimeout(r, 2500));
+      checks.push(["加拿大地圖 13 省路徑", q("#rgmap-canada .region") === 13]);
+      checks.push(["加拿大圖例", doc.getElementById("rgLegend-canada").innerHTML.length > 10]);
+      checks.push(["加拿大預設面板（魁北克）", doc.getElementById("rgPanel-canada").textContent.includes("魁北克")]);
+      checks.push(["加拿大選單 14 項", q("#rgSelect-canada option") === 14]);
+      checks.push(["中美洲地圖 14 國路徑", q("#rgmap-central .region") === 14]);
+      checks.push(["中美洲預設面板（墨西哥）", doc.getElementById("rgPanel-central").textContent.includes("墨西哥")]);
+      checks.push(["南美洲地圖 12 國路徑", q("#rgmap-south .region") === 12]);
+      checks.push(["南美洲預設面板（巴西）", doc.getElementById("rgPanel-south").textContent.includes("巴西")]);
+      checks.push(["南美洲圖例", doc.getElementById("rgLegend-south").innerHTML.length > 10]);
     }
     if (page === "about.html") {
       checks.push(["方法卡", q(".about-grid .chart-card") === 4]);

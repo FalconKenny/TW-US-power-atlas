@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>美洲電力深度頁｜台美電力資源藍圖</title>
-<meta name="description" content="美洲電力資源深度分析：美國 50 州＋DC 電價與綠電總表、八大電網、每週供需、兩年電價趨勢，以及加拿大、墨西哥、巴西等 8 國電力速覽。資料整理自 EIA、DOE、FERC 與各電力公司。">
+<meta name="description" content="美洲電力資源深度分析：美國 50 州、加拿大 13 省、中美洲與加勒比、南美洲互動電力地圖，電價與綠電總表、每週供需與兩年電價趨勢。資料整理自 EIA、DOE、FERC、CER 與各國電力主管機關。">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,22 +18,22 @@
   <div class="wrap">
     <p class="eyebrow">DEEP DIVE 02 · AMERICAS POWER PROFILE</p>
     <h1>美洲電力深度頁</h1>
-    <p>美國電價「一州一世界」——住宅電價從華盛頓州約 11.9¢ 到夏威夷逾 40¢，差距近四倍；電力市場更分成八大調度體系。本頁提供 50 州＋DC 完整電價與綠電總表、每週供需、兩年趨勢，並延伸至加拿大、墨西哥、巴西等 8 個美洲重點國家。</p>
+    <p>從阿拉斯加到巴塔哥尼亞，美洲的電力是四個世界：美國「一州一市場」、加拿大「水電大陸」、中美洲「近岸製造帶」、南美洲「綠電走廊」。本頁提供四大區域的互動電力地圖——美國到州、加拿大到省、中南美到國——同一套 hover 浮框、著色切換與電力檔案。</p>
   </div>
 </header>
 
-<!-- ============ 全美儀表板 ============ -->
+<!-- ============ 全美洲儀表板 ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <p class="kicker">NATIONAL DASHBOARD · 全美關鍵指標</p>
-      <h2 class="title">美國電力系統，一眼看懂</h2>
+      <p class="kicker">CONTINENTAL DASHBOARD · 美洲四區關鍵指標</p>
+      <h2 class="title">美洲電力版圖，一眼看懂</h2>
     </div>
     <div class="stat-grid">
-      <div class="stat-card"><span class="tag">RESIDENTIAL</span><b>17.5 ¢</b><p>全美住宅平均電價（/kWh，2025）<br>≈ NT$5.6/度；州際差距近四倍</p></div>
-      <div class="stat-card"><span class="tag">INDUSTRIAL</span><b>8.9 ¢</b><p>全美工業平均電價（/kWh，2025）<br>≈ NT$2.8/度，低於台灣產業電價</p></div>
-      <div class="stat-card"><span class="tag">PEAK LOAD</span><b>~745 GW</b><p>Lower 48 夏季尖峰需求<br>資料中心是最強負載成長引擎</p></div>
-      <div class="stat-card"><span class="tag">RENEWABLE</span><b>~23%</b><p>風＋光＋水發電占比（2025）<br>加計核能，低碳電力約四成</p></div>
+      <div class="stat-card"><span class="tag">🇺🇸 USA</span><b>8.9 ¢</b><p>工業平均電價（/kWh，2025）<br>50 州差距近四倍；住宅平均 17.5¢</p></div>
+      <div class="stat-card"><span class="tag">🇨🇦 CANADA</span><b>~68%</b><p>再生能源發電占比（水電大陸）<br>魁北克工業電價僅約 5.7¢CAD，北美最低</p></div>
+      <div class="stat-card"><span class="tag">CENTRAL AM.</span><b>4–28 ¢</b><p>工業電價區間（/kWh USD）<br>千里達燃氣最廉、加勒比島國最貴</p></div>
+      <div class="stat-card"><span class="tag">SOUTH AM.</span><b>~75%</b><p>南美電網再生能源占比<br>巴拉圭 100% 水電、巴西近九成</p></div>
     </div>
 
     <div class="chart-grid2 mt-40">
@@ -46,83 +46,224 @@
         <p class="src">燃氣為第一大電源；太陽能是成長最快的新增裝置，燃煤持續退場。來源：EIA Electric Power Monthly（約值）</p>
       </div>
       <div class="chart-card">
-        <h3>台美工業用電成本對照（概算）</h3>
+        <h3>台灣 vs 美洲工業用電成本對照（概算）</h3>
         <div class="kv" style="margin-top:8px">
           <div class="cell"><small>台灣產業電價</small><b>NT$ 4.27</b><small>／度 ≈ 13.3 ¢USD</small></div>
-          <div class="cell amber"><small>美國工業平均</small><b>8.9 ¢</b><small>/kWh ≈ NT$2.85／度</small></div>
-          <div class="cell green"><small>最低州（華盛頓等）</small><b>~6–7 ¢</b><small>/kWh 水電州</small></div>
-          <div class="cell"><small>最高州（夏威夷）</small><b>~34 ¢</b><small>/kWh 島嶼燃油系統</small></div>
+          <div class="cell amber"><small>美國工業平均</small><b>8.9 ¢</b><small>USD/kWh ≈ NT$2.85／度</small></div>
+          <div class="cell green"><small>魁北克（水電）</small><b>~5.7 ¢</b><small>CAD/kWh ≈ 4.2 ¢USD</small></div>
+          <div class="cell green"><small>巴拉圭（Itaipú）</small><b>~5 ¢</b><small>USD/kWh，100% 綠電</small></div>
         </div>
-        <p class="src">概算匯率 1USD=32TWD。美國工業電價普遍低於台灣，但需另計輸配容量費、尖峰費率（Demand Charge）與併網時程成本。</p>
+        <p class="src">概算匯率 1USD=32TWD、1CAD=23TWD。美洲低價電多為水電/燃氣州省，需另計需量費（Demand Charge）、併網時程與物流成本。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 美國互動地圖 ============ -->
-<section class="section alt" id="us-map">
+<!-- ============ 美洲互動地圖：區域選擇 ============ -->
+<section class="section alt" id="am-map">
   <div class="wrap">
     <div class="section-head">
-      <p class="kicker">INTERACTIVE MAP · 州級電力檔案</p>
-      <h2 class="title">游標移入，展開州級電力檔案</h2>
-      <p>可切換三種著色模式：住宅電價、工業電價、綠電占比。點擊任一州（或使用選單）可展開完整檔案，含台商佈局備註。</p>
+      <p class="kicker">INTERACTIVE MAPS · 四大區域電力地圖</p>
+      <h2 class="title">選擇區域，展開電力地圖</h2>
+      <p>四個區域使用同一套互動：游標移入即出現電價與綠電浮框、可切換著色模式、點擊（或使用選單）展開完整電力檔案與台灣供應鏈連結重點。</p>
     </div>
-    <div class="cat-tabs" id="usModeTabs">
-      <button class="cat-tab active" data-mode="rPrice" onclick="PA_setUsMode('rPrice')">住宅電價</button>
-      <button class="cat-tab" data-mode="iPrice" onclick="PA_setUsMode('iPrice')">工業電價</button>
-      <button class="cat-tab" data-mode="ren" onclick="PA_setUsMode('ren')">綠電占比</button>
-    </div>
-    <div class="map-flex">
-      <div class="map-box" id="usmapWrap">
-        <div class="map-title">
-          <span>AMERICAS POWER CHART · 州級電價與綠電</span>
-          <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
-        </div>
-        <div id="usmapBox"></div>
-        <div class="map-tip" id="usTip"></div>
-        <div class="map-legend" id="usLegend"></div>
-      </div>
-      <div>
-        <select class="sel" id="usSelect" aria-label="選擇州別"></select>
-        <div class="state-panel" id="usPanel" style="margin-top:14px">
-          <p class="empty">將游標移到地圖上的州別，或使用上方選單。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 50 州總表 ============ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="kicker">STATE TABLE · 50 州＋DC 總表</p>
-      <h2 class="title">州級電價與綠電總表</h2>
-      <p>點擊表頭排序——選址時最常用的三種排法：工業電價由低到高、綠電占比由高到低、以及鎖定同一電網（如 ERCOT、PJM）比較。點擊列可回到上方地圖檢視該州。</p>
+    <!-- 區域選擇 -->
+    <div class="cat-tabs" id="amRegionTabs" style="margin-bottom:26px">
+      <button class="cat-tab active" data-region="us" onclick="PA_setAmRegion('us')">🇺🇸 美國（北美）</button>
+      <button class="cat-tab" data-region="canada" onclick="PA_setAmRegion('canada')">🇨🇦 加拿大</button>
+      <button class="cat-tab" data-region="central" onclick="PA_setAmRegion('central')">中美洲與加勒比</button>
+      <button class="cat-tab" data-region="south" onclick="PA_setAmRegion('south')">南美洲</button>
     </div>
-    <div class="tbl-wrap" style="max-height:560px;overflow:auto">
-      <table class="tbl" id="usTbl">
-        <thead><tr>
-          <th data-k="0">州別</th>
-          <th data-k="1" data-num="1">住宅電價 ¢/kWh</th>
-          <th data-k="2" data-num="1">工業電價 ¢/kWh</th>
-          <th data-k="3" data-num="1">綠電占比 %</th>
-          <th data-k="4">電網</th>
-          <th data-k="5">主力電源</th>
-        </tr></thead>
-        <tbody id="usTblBody"></tbody>
-      </table>
+
+    <!-- ======== 區域 1：美國 ======== -->
+    <div class="am-region" data-region="us">
+      <div class="cat-tabs" id="usModeTabs">
+        <button class="cat-tab active" data-mode="rPrice" onclick="PA_setUsMode('rPrice')">住宅電價</button>
+        <button class="cat-tab" data-mode="iPrice" onclick="PA_setUsMode('iPrice')">工業電價</button>
+        <button class="cat-tab" data-mode="ren" onclick="PA_setUsMode('ren')">綠電占比</button>
+      </div>
+      <div class="map-flex">
+        <div class="map-box" id="usmapWrap">
+          <div class="map-title">
+            <span>UNITED STATES POWER CHART · 州級電價與綠電</span>
+            <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+          </div>
+          <div id="usmapBox"></div>
+          <div class="map-tip" id="usTip"></div>
+          <div class="map-legend" id="usLegend"></div>
+        </div>
+        <div>
+          <select class="sel" id="usSelect" aria-label="選擇州別"></select>
+          <div class="state-panel" id="usPanel" style="margin-top:14px">
+            <p class="empty">將游標移到地圖上的州別，或使用上方選單。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:56px">
+        <p class="kicker">STATE TABLE · 50 州＋DC 總表</p>
+        <h2 class="title">州級電價與綠電總表</h2>
+        <p>點擊表頭排序——選址最常用的三種排法：工業電價由低到高、綠電占比由高到低、鎖定同一電網（如 ERCOT、PJM）比較。點擊列可回到地圖檢視該州。</p>
+      </div>
+      <div class="tbl-wrap" style="max-height:560px;overflow:auto">
+        <table class="tbl" id="usTbl">
+          <thead><tr>
+            <th data-k="0">州別</th>
+            <th data-k="1" data-num="1">住宅電價 ¢/kWh</th>
+            <th data-k="2" data-num="1">工業電價 ¢/kWh</th>
+            <th data-k="3" data-num="1">綠電占比 %</th>
+            <th data-k="4">電網</th>
+            <th data-k="5">主力電源</th>
+          </tr></thead>
+          <tbody id="usTblBody"></tbody>
+        </table>
+      </div>
+      <p class="notice" style="margin-top:14px">來源：EIA Electric Power Monthly Table 5.6.A、EIA State Electricity Profiles（2025 約值）；以 EIA 公告為準。</p>
     </div>
-    <p class="notice" style="margin-top:14px">來源：EIA Electric Power Monthly Table 5.6.A、EIA State Electricity Profiles（2025 約值）；以 EIA 公告為準。</p>
+
+    <!-- ======== 區域 2：加拿大 ======== -->
+    <div class="am-region" data-region="canada" style="display:none">
+      <div class="cat-tabs" id="rgModeTabs-canada">
+        <button class="cat-tab active" data-mode="rPrice" onclick="PA_setRegionMode('canada','rPrice')">住宅電價</button>
+        <button class="cat-tab" data-mode="iPrice" onclick="PA_setRegionMode('canada','iPrice')">工業電價</button>
+        <button class="cat-tab" data-mode="ren" onclick="PA_setRegionMode('canada','ren')">綠電占比</button>
+      </div>
+      <div class="map-flex">
+        <div class="map-box">
+          <div class="map-title">
+            <span>CANADA POWER CHART · 省級電價與綠電（¢CAD）</span>
+            <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+          </div>
+          <div id="rgmapBox-canada"></div>
+          <div class="map-tip" id="rgTip-canada"></div>
+          <div class="map-legend" id="rgLegend-canada"></div>
+        </div>
+        <div>
+          <select class="sel" id="rgSelect-canada" aria-label="選擇省份"></select>
+          <div class="state-panel" id="rgPanel-canada" style="margin-top:14px">
+            <p class="empty">將游標移到地圖上的省份，或使用上方選單。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:56px">
+        <p class="kicker">PROVINCE TABLE · 13 省與地方總表</p>
+        <h2 class="title">加拿大省級電價與綠電總表</h2>
+        <p>加拿大是「一省一公司」的水電大陸：魁北克、曼尼托巴電價全北美最低；亞伯達是唯一全自由化市場、波動類似德州 ERCOT。電價為加分（¢CAD），概算 1 CAD ≈ 23 TWD。</p>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl" id="caTbl">
+          <thead><tr>
+            <th data-k="0">省份</th>
+            <th data-k="1" data-num="1">住宅 ¢CAD/kWh</th>
+            <th data-k="2" data-num="1">工業 ¢CAD/kWh</th>
+            <th data-k="3" data-num="1">綠電占比 %</th>
+            <th data-k="4">電力公司／市場</th>
+            <th data-k="5">主要電源</th>
+          </tr></thead>
+          <tbody id="caTblBody"></tbody>
+        </table>
+      </div>
+      <p class="notice" style="margin-top:14px">來源：各省電力公司費率表、加拿大能源監管局 CER（2025 約值）；以各省公告為準。</p>
+    </div>
+
+    <!-- ======== 區域 3：中美洲與加勒比 ======== -->
+    <div class="am-region" data-region="central" style="display:none">
+      <div class="cat-tabs" id="rgModeTabs-central">
+        <button class="cat-tab active" data-mode="iUsd" onclick="PA_setRegionMode('central','iUsd')">工業電價</button>
+        <button class="cat-tab" data-mode="ren" onclick="PA_setRegionMode('central','ren')">綠電占比</button>
+      </div>
+      <div class="map-flex">
+        <div class="map-box">
+          <div class="map-title">
+            <span>CENTRAL AMERICA & CARIBBEAN POWER CHART（¢USD）</span>
+            <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+          </div>
+          <div id="rgmapBox-central"></div>
+          <div class="map-tip" id="rgTip-central"></div>
+          <div class="map-legend" id="rgLegend-central"></div>
+        </div>
+        <div>
+          <select class="sel" id="rgSelect-central" aria-label="選擇國家"></select>
+          <div class="state-panel" id="rgPanel-central" style="margin-top:14px">
+            <p class="empty">將游標移到地圖上的國家，或使用上方選單。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:56px">
+        <p class="kicker">COUNTRY TABLE · 中美洲與加勒比 14 國</p>
+        <h2 class="title">中美洲與加勒比電力總表</h2>
+        <p>這裡是「近岸製造帶」：墨西哥電子、宏都拉斯與瓜地馬拉紡織、多明尼加與哥斯大黎加醫材。六國電網已由 SIEPAC 區域輸電線互聯；千里達憑燃氣擁有美洲最便宜的電，加勒比島國則普遍逾 20¢。</p>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl" id="ctTbl">
+          <thead><tr>
+            <th data-k="0">國家</th>
+            <th data-k="1" data-num="1">工業電價 ¢USD/kWh</th>
+            <th data-k="2" data-num="1">綠電占比 %</th>
+            <th data-k="3">電網／調度</th>
+            <th data-k="4">主要電源</th>
+          </tr></thead>
+          <tbody id="ctTblBody"></tbody>
+        </table>
+      </div>
+      <p class="notice" style="margin-top:14px">來源：各國電力主管機關與調度機構、OLADE（2025 約值）；以各國公告為準。</p>
+    </div>
+
+    <!-- ======== 區域 4：南美洲 ======== -->
+    <div class="am-region" data-region="south" style="display:none">
+      <div class="cat-tabs" id="rgModeTabs-south">
+        <button class="cat-tab active" data-mode="iUsd" onclick="PA_setRegionMode('south','iUsd')">工業電價</button>
+        <button class="cat-tab" data-mode="ren" onclick="PA_setRegionMode('south','ren')">綠電占比</button>
+      </div>
+      <div class="map-flex">
+        <div class="map-box">
+          <div class="map-title">
+            <span>SOUTH AMERICA POWER CHART（¢USD）</span>
+            <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+          </div>
+          <div id="rgmapBox-south"></div>
+          <div class="map-tip" id="rgTip-south"></div>
+          <div class="map-legend" id="rgLegend-south"></div>
+        </div>
+        <div>
+          <select class="sel" id="rgSelect-south" aria-label="選擇國家"></select>
+          <div class="state-panel" id="rgPanel-south" style="margin-top:14px">
+            <p class="empty">將游標移到地圖上的國家，或使用上方選單。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-top:56px">
+        <p class="kicker">COUNTRY TABLE · 南美洲 12 國</p>
+        <h2 class="title">南美洲電力總表</h2>
+        <p>南美是全球最綠的大陸電網：巴拉圭 100% 水電且電價全球最低之一、巴西近九成綠電、烏拉圭風電轉型典範。要留意的是「水文風險」——厄瓜多 2024 年大旱曾全國輪流停電，依賴水電的國家都需備援方案。</p>
+      </div>
+      <div class="tbl-wrap">
+        <table class="tbl" id="saTbl">
+          <thead><tr>
+            <th data-k="0">國家</th>
+            <th data-k="1" data-num="1">工業電價 ¢USD/kWh</th>
+            <th data-k="2" data-num="1">綠電占比 %</th>
+            <th data-k="3">電網／調度</th>
+            <th data-k="4">主要電源</th>
+          </tr></thead>
+          <tbody id="saTblBody"></tbody>
+        </table>
+      </div>
+      <p class="notice" style="margin-top:14px">來源：ONS/ANEEL、CAMMESA、CNE、XM、COES、CENACE、ANDE、UTE 等（2025 約值）；以各國公告為準。</p>
+    </div>
   </div>
 </section>
 
 <!-- ============ 每週供需與趨勢 ============ -->
-<section class="section alt">
+<section class="section">
   <div class="wrap">
     <div class="section-head">
       <p class="kicker">WEEKLY & TREND · 供需與電價航跡</p>
-      <h2 class="title">每週供需與兩年電價趨勢</h2>
+      <h2 class="title">每週供需與兩年電價趨勢（美國）</h2>
       <p>美國電價走「市場斜坡」：燃料價格、輸配投資與資料中心負載推動住宅均價緩升；加州因輸配與野火成本持續領漲，德州、喬治亞相對平緩。即時供需可查 EIA Hourly Electric Grid Monitor。</p>
     </div>
     <div class="chart-grid2">
@@ -156,13 +297,13 @@
   </div>
 </section>
 
-<!-- ============ 美洲八國 ============ -->
-<section class="section">
+<!-- ============ 美洲八國卡片 ============ -->
+<section class="section alt">
   <div class="wrap">
     <div class="section-head">
-      <p class="kicker">BEYOND THE US · 美洲八國電力速覽</p>
-      <h2 class="title">從加拿大水電到智利烈日</h2>
-      <p>美洲不只美國：加拿大水電是北美最便宜的綠電之一；墨西哥是近岸外包最大熱區但北部電網吃緊；巴西與哥斯大黎加的電網綠電占比逼近九成以上。以下為 8 國電力檔案。</p>
+      <p class="kicker">HIGHLIGHTS · 美洲八國重點檔案</p>
+      <h2 class="title">佈局熱點速讀</h2>
+      <p>從上方地圖挑出台商最常評估的八個市場，濃縮成檔案卡：加拿大水電、墨西哥近岸、巴西與智利綠電走廊、哥斯大黎加醫材聚落⋯⋯完整資料請切換上方各區域地圖。</p>
     </div>
     <div class="ctry-grid" id="ctryGridAll"></div>
     <p class="notice" style="margin-top:18px">各國電價為公開資料整理之區間約值，實際依用戶類別、時段與匯率變動；以各國電力主管機關與電力公司公告為準。</p>
@@ -174,10 +315,13 @@
 <script src="assets/vendor/d3.min.js"></script>
 <script src="assets/vendor/topojson-client.min.js"></script>
 <script src="assets/js/data-us.js"></script>
+<script src="assets/js/data-canada.js"></script>
+<script src="assets/js/data-latam.js"></script>
 <script src="assets/js/data-trends.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/charts.js"></script>
 <script src="assets/js/map-us.js"></script>
+<script src="assets/js/map-regions.js"></script>
 <script>
 /* 美國電源結構 */
 PA_mixBar("usMix", US_NATIONAL.mix2025, {
@@ -190,10 +334,10 @@ PA_mixBar("usMix", US_NATIONAL.mix2025, {
   others:  { name: "其他", cls: "oil" }
 });
 
-/* 50 州總表 */
+/* 美國 50 州總表 */
 document.getElementById("usTblBody").innerHTML = Object.entries(US_STATES)
   .sort((a, b) => a[1].name.localeCompare(b[1].name, "zh-Hant"))
-  .map(([fips, s]) => `<tr style="cursor:pointer" onclick="showUsState('${fips}');document.getElementById('us-map').scrollIntoView({behavior:'smooth'})">
+  .map(([fips, s]) => `<tr style="cursor:pointer" onclick="showUsState('${fips}');document.getElementById('am-map').scrollIntoView({behavior:'smooth'})">
     <td><b>${s.name}</b> <span class="mono" style="font-size:11px;color:#5B6B7C">${s.abbr}</span></td>
     <td class="num" data-v="${s.rPrice}">${s.rPrice.toFixed(1)}</td>
     <td class="num" data-v="${s.iPrice}">${s.iPrice.toFixed(1)}</td>
@@ -203,10 +347,47 @@ document.getElementById("usTblBody").innerHTML = Object.entries(US_STATES)
   </tr>`).join("");
 PA_sortableTable("usTbl");
 
+/* 加拿大 13 省總表 */
+document.getElementById("caTblBody").innerHTML = Object.entries(CA_PROVINCES)
+  .sort((a, b) => a[1].en.localeCompare(b[1].en))
+  .map(([id, p]) => `<tr style="cursor:pointer" onclick="PA_initRegionMap('canada');showRegionItem('canada','${id}');document.getElementById('am-map').scrollIntoView({behavior:'smooth'})">
+    <td><b>${p.name}</b> <span class="mono" style="font-size:11px;color:#5B6B7C">${p.abbr}</span></td>
+    <td class="num" data-v="${p.rPrice}">${p.rPrice.toFixed(1)}</td>
+    <td class="num" data-v="${p.iPrice}">${p.iPrice.toFixed(1)}</td>
+    <td class="num" data-v="${p.ren}">${p.ren}</td>
+    <td>${p.utility.split("（")[0]}</td>
+    <td>${p.main}</td>
+  </tr>`).join("");
+PA_sortableTable("caTbl");
+
+/* 中美洲與加勒比總表 */
+document.getElementById("ctTblBody").innerHTML = Object.entries(CENTRAL_AM)
+  .sort((a, b) => a[1].en.localeCompare(b[1].en))
+  .map(([id, c]) => `<tr style="cursor:pointer" onclick="PA_initRegionMap('central');showRegionItem('central','${id}');document.getElementById('am-map').scrollIntoView({behavior:'smooth'})">
+    <td><b>${c.name}</b></td>
+    <td class="num" data-v="${c.iUsd ?? 999}">${c.iUsd != null ? c.iUsd.toFixed(1) : "—"}</td>
+    <td class="num" data-v="${c.ren}">${c.ren}</td>
+    <td>${c.grid.split("（")[0]}</td>
+    <td>${c.main}</td>
+  </tr>`).join("");
+PA_sortableTable("ctTbl");
+
+/* 南美洲總表 */
+document.getElementById("saTblBody").innerHTML = Object.entries(SOUTH_AM)
+  .sort((a, b) => a[1].en.localeCompare(b[1].en))
+  .map(([id, c]) => `<tr style="cursor:pointer" onclick="PA_initRegionMap('south');showRegionItem('south','${id}');document.getElementById('am-map').scrollIntoView({behavior:'smooth'})">
+    <td><b>${c.name}</b></td>
+    <td class="num" data-v="${c.iUsd ?? 999}">${c.iUsd != null ? c.iUsd.toFixed(1) : "—"}</td>
+    <td class="num" data-v="${c.ren}">${c.ren}</td>
+    <td>${c.grid.split("（")[0]}</td>
+    <td>${c.main}</td>
+  </tr>`).join("");
+PA_sortableTable("saTbl");
+
 /* 每週供需 */
 PA_weeklyChart({ el: "usWeekly", data: US_WEEKLY });
 
-/* 兩年趨勢（完整版含 AZ） */
+/* 兩年趨勢 */
 PA_lineChart({ el: "usTrendFull", months: TREND_MONTHS, unit: " ¢/kWh",
   yFmt: d => d + "¢",
   series: [
@@ -221,7 +402,7 @@ PA_lineChart({ el: "usTrendFull", months: TREND_MONTHS, unit: " ¢/kWh",
 document.getElementById("gridList").innerHTML = US_GRID_NOTES
   .map(g => `<li><b>${g.grid}</b>${g.area}｜${g.trait}</li>`).join("");
 
-/* 美洲八國 */
+/* 美洲八國卡 */
 document.getElementById("ctryGridAll").innerHTML = AMERICAS_COUNTRIES
   .map(c => `<div class="ctry-card">
     <div class="flagline"><h3>${c.name}</h3><span class="en">${c.en}</span></div>
@@ -231,6 +412,11 @@ document.getElementById("ctryGridAll").innerHTML = AMERICAS_COUNTRIES
     <p>${c.note}</p>
     <span class="src">來源：${c.source}</span>
   </div>`).join("");
+
+/* 表格點擊跳轉地圖時，同步切換區域顯示 */
+document.getElementById("caTblBody").addEventListener("click", () => PA_setAmRegion("canada"));
+document.getElementById("ctTblBody").addEventListener("click", () => PA_setAmRegion("central"));
+document.getElementById("saTblBody").addEventListener("click", () => PA_setAmRegion("south"));
 </script>
 </body>
 </html>

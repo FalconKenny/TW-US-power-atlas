@@ -10,7 +10,7 @@
 |---|---|
 | `index.html` | 首頁：台美供需快照、**台灣互動地圖**（hover 浮框顯示電價/電力資源、點擊展開縣市檔案）、**美國互動地圖**（住宅電價/工業電價/綠電占比三種著色模式）、八大電網速覽、兩年電價趨勢預覽、美洲國家預覽 |
 | `taiwan.html` | 台灣深度頁：全國儀表板、電源結構與再生能源裝置容量、互動地圖、北中南東分區供需、代表週供需圖（含備轉容量率）、兩年電價趨勢與關鍵節點、22 縣市可排序總表 |
-| `americas.html` | 美洲深度頁：全美儀表板、發電結構、台美工業電價對照、互動地圖、50 州＋DC 可排序電價總表、代表週供需、五地電價趨勢、八大電網、美洲八國電力檔案 |
+| `americas.html` | 美洲深度頁：**四大區域互動地圖切換（美國／加拿大／中美洲與加勒比／南美洲）**——美國到州（50 州＋DC）、加拿大到省（13 省與地方）、中南美到國（26 國），各區皆有 hover 浮框、著色模式切換、側欄電力檔案與可排序電價總表；另含代表週供需、五地電價趨勢、八大電網、美洲八國重點檔案卡 |
 | `about.html` | 方法論、名詞解釋（備轉容量率、ISO/RTO、中電北送、REC/T-REC、Demand Charge）、完整資料來源連結、免責聲明 |
 
 ## 技術說明
@@ -19,8 +19,10 @@
 - **地圖**：D3 v7 + topojson-client（皆已 vendor 在本地，離線可用）
   - 台灣：taiwan-atlas `counties-mercator`（預投影 480×600，以 `COUNTYCODE` 對應資料）
   - 美國：us-atlas `states-albers-10m`（Albers USA 975×610，以州 FIPS 對應資料）
+  - 加拿大：省級 topojson（feature id 為 `CA.QC` 等省代碼，Conic Equal-Area 投影）
+  - 中南美：world-atlas `countries-50m` 裁切 26 國（feature id 為 ISO 數字代碼，Mercator 投影）
 - **圖表**：D3 手繪折線圖（含事件標線、hover 十字提示）、供需長條＋階梯線圖、電源結構橫條
-- **資料**：`assets/js/data-taiwan.js`、`data-us.js`、`data-trends.js` 三個純 JS 檔，更新資料只需編輯這三個檔案
+- **資料**：`assets/js/data-taiwan.js`、`data-us.js`、`data-canada.js`、`data-latam.js`、`data-trends.js` 五個純 JS 檔，更新資料只需編輯這些檔案
 
 ## 本地預覽
 
@@ -49,10 +51,12 @@ python3 -m http.server 8000
 | 要更新的內容 | 檔案 | 位置 |
 |---|---|---|
 | 台灣電價、電源結構、縣市檔案 | `assets/js/data-taiwan.js` | `TW_NATIONAL`、`TW_COUNTIES`、`TW_REGIONS` |
-| 美國州級電價/綠電、美洲各國 | `assets/js/data-us.js` | `US_STATES`（FIPS key）、`AMERICAS_COUNTRIES` |
+| 美國州級電價/綠電 | `assets/js/data-us.js` | `US_STATES`（FIPS key）、`AMERICAS_COUNTRIES`（八國卡） |
+| 加拿大各省電價/綠電 | `assets/js/data-canada.js` | `CA_PROVINCES`（`CA.QC` 等省代碼 key） |
+| 中美洲/加勒比與南美各國 | `assets/js/data-latam.js` | `CENTRAL_AM`、`SOUTH_AM`（ISO 數字代碼 key） |
 | 兩年電價趨勢、每週供需 | `assets/js/data-trends.js` | `TREND_MONTHS`、`*_PRICE_TREND`、`*_WEEKLY` |
 
-主要原始來源：台電（電價表、今日電力資訊）、經濟部能源署、U.S. EIA（Electric Power Monthly Table 5.6.A、Hourly Electric Grid Monitor）、DOE、FERC、各國電力主管機關。完整清單見 `about.html`。
+主要原始來源：台電（電價表、今日電力資訊）、經濟部能源署、U.S. EIA（Electric Power Monthly Table 5.6.A、Hourly Electric Grid Monitor）、DOE、FERC、加拿大 CER 與各省電力公司（Hydro-Québec、BC Hydro、IESO、AESO⋯）、中南美各國調度機構（CFE/CENACE、ONS/ANEEL、CAMMESA、CNE、XM、COES、ANDE、UTE、ICE⋯）與 OLADE。完整清單見 `about.html`。
 
 ## 測試
 
