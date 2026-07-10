@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台美電力資源藍圖｜Taiwan–Americas Power Atlas</title>
+<meta name="description" content="為赴美與赴台佈局的企業，以互動地圖呈現台灣各縣市與美洲各州/各國的電力資源現況（含綠電）、每週電力供需與兩年電價趨勢。資料整理自台電、EIA、DOE、FERC 與各電力公司。">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav class="nav" id="nav"></nav>
+
+<!-- ============ HERO：跨太平洋輸電航海圖 ============ -->
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow">TAIWAN ⇄ AMERICAS · POWER RESOURCE ATLAS</p>
+      <h1>把電力資源<br>畫進<em>佈局航海圖</em>
+        <span class="en">TAIWAN–AMERICAS POWER ATLAS</span>
+      </h1>
+      <p class="lead">赴美設廠或赴台投資，「電從哪裡來、多少錢、穩不穩」往往是選址的第一道關卡。本站以互動地圖整理台灣各縣市與美洲各州、各國的電力資源現況（含綠電）、每週供需與兩年電價趨勢——讓您在決定落腳前，先看清電力的海象。</p>
+      <div class="hero-actions">
+        <a class="btn btn-amber" href="#tw-map">探索台灣電力地圖</a>
+        <a class="btn btn-teal" href="#us-map">探索美國電力地圖</a>
+        <a class="btn btn-ghost" href="about.html">資料來源與方法</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>22</b><span>台灣縣市電力檔案</span></div>
+        <div class="hero-stat"><b>50+DC</b><span>美國州級電價與綠電</span></div>
+        <div class="hero-stat"><b>8</b><span>美洲重點國家</span></div>
+        <div class="hero-stat"><b>24 個月</b><span>電價趨勢追蹤</span></div>
+      </div>
+    </div>
+    <div class="hero-route" aria-hidden="true">
+      <svg viewBox="0 0 480 340">
+        <g stroke="rgba(255,255,255,.08)" stroke-width="1">
+          <line x1="0" y1="70" x2="480" y2="70"/><line x1="0" y1="150" x2="480" y2="150"/>
+          <line x1="0" y1="230" x2="480" y2="230"/><line x1="0" y1="310" x2="480" y2="310"/>
+          <line x1="80" y1="0" x2="80" y2="340"/><line x1="200" y1="0" x2="200" y2="340"/>
+          <line x1="320" y1="0" x2="320" y2="340"/><line x1="440" y1="0" x2="440" y2="340"/>
+        </g>
+        <text class="route-label" x="8" y="64">25°N</text>
+        <text class="route-label" x="8" y="144">20°N</text>
+        <text class="route-label" x="84" y="332">121°E</text>
+        <text class="route-label" x="324" y="332">112°W</text>
+        <!-- 台灣端 -->
+        <circle cx="80" cy="200" r="7" fill="#E8A23D"/>
+        <circle cx="80" cy="200" r="13" fill="none" stroke="#E8A23D" stroke-opacity=".4">
+          <animate attributeName="r" values="9;18;9" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" values=".5;0;.5" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text class="route-city" x="60" y="232">台灣</text>
+        <text class="route-label" x="46" y="248">NT$3.70/kWh · 綠電15%</text>
+        <!-- 輸電航線 -->
+        <path class="route-path" d="M84 196 C 170 90, 300 80, 396 118"/>
+        <path class="route-volt" d="M84 204 C 180 130, 300 120, 392 132"/>
+        <!-- 塔架記號 -->
+        <g stroke="#0FA3A8" stroke-width="1.4" opacity=".85">
+          <path d="M198 96 l6 14 M204 96 l-6 14 M196 103 h10" fill="none"/>
+          <path d="M300 84 l6 14 M306 84 l-6 14 M298 91 h10" fill="none"/>
+        </g>
+        <!-- 美洲端 -->
+        <circle cx="396" cy="122" r="7" fill="#0FA3A8"/>
+        <circle cx="396" cy="122" r="13" fill="none" stroke="#0FA3A8" stroke-opacity=".4">
+          <animate attributeName="r" values="9;18;9" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" values=".5;0;.5" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text class="route-city" x="376" y="100">美洲</text>
+        <text class="route-label" x="340" y="156">US avg 17.5¢/kWh · 綠電23%</text>
+        <!-- 南向支線（拉美） -->
+        <path class="route-path" d="M396 126 C 420 190, 430 240, 408 300" opacity=".55"/>
+        <circle cx="408" cy="300" r="4.5" fill="#3FA66A"/>
+        <text class="route-label" x="352" y="306">LATAM 綠電走廊</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 台美供需快照 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">SNAPSHOT · 台美電力座標</p>
+      <h2 class="title">出發前，先對齊兩地的電力刻度</h2>
+      <p>電價機制、備轉制度、綠電採購方式，台美兩地邏輯完全不同。以下是佈局評估最常用的五組對照。</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl" id="snapTbl">
+        <thead><tr><th style="cursor:default">評估項目</th><th style="cursor:default">🇹🇼 台灣</th><th style="cursor:default">🇺🇸 美國</th></tr></thead>
+        <tbody id="snapBody"></tbody>
+      </table>
+    </div>
+    <p class="notice mt-40" style="margin-top:14px">來源：台電系統運轉資料、EIA Electric Power Monthly（2025 約值）。</p>
+  </div>
+</section>
+
+<!-- ============ 台灣互動地圖 ============ -->
+<section class="section alt" id="tw-map">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">INTERACTIVE MAP 01 · TAIWAN</p>
+      <h2 class="title">台灣電力資源地圖</h2>
+      <p>游標移到任一縣市，即出現該地的電價與電力資源浮框；點擊可展開完整電力檔案。台灣採台電統一費率，因此電價全國一致——差異在「電從哪來」：北部吃緊、中南部外送、離岸風電與光電重鎮各據一方。</p>
+    </div>
+    <div class="map-flex">
+      <div class="map-box" id="twmapWrap">
+        <div class="map-title">
+          <span>FORMOSA POWER CHART · 縣市電力角色</span>
+          <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+        </div>
+        <div id="twmapBox"></div>
+        <div class="map-tip" id="twTip"></div>
+        <div class="map-legend">
+          <span class="lg"><span class="sw" style="background:#3F86C8"></span>電源重鎮</span>
+          <span class="lg"><span class="sw" style="background:#3FA66A"></span>綠能重鎮</span>
+          <span class="lg"><span class="sw" style="background:#8E6FC0"></span>負載中心</span>
+          <span class="lg"><span class="sw" style="background:#2C6EA8"></span>供需並重</span>
+          <span class="lg"><span class="sw" style="background:#4E6B84"></span>離島獨立電網</span>
+        </div>
+      </div>
+      <div>
+        <select class="sel" id="twSelect" aria-label="選擇縣市"></select>
+        <div class="state-panel" id="twPanel" style="margin-top:14px">
+          <p class="empty">將游標移到地圖上的縣市，或使用上方選單。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 美國互動地圖 ============ -->
+<section class="section" id="us-map">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">INTERACTIVE MAP 02 · UNITED STATES</p>
+      <h2 class="title">美國電力資源地圖</h2>
+      <p>美國電價「一州一世界」：華盛頓州水電不到 12¢，夏威夷逾 40¢；德州 ERCOT 自由市場價格波動大，喬治亞垂直整合供電穩定。游標移入任一州即顯示電價與綠電浮框，並可切換三種著色模式。</p>
+    </div>
+    <div class="cat-tabs" id="usModeTabs">
+      <button class="cat-tab active" data-mode="rPrice" onclick="PA_setUsMode('rPrice')">住宅電價</button>
+      <button class="cat-tab" data-mode="iPrice" onclick="PA_setUsMode('iPrice')">工業電價</button>
+      <button class="cat-tab" data-mode="ren" onclick="PA_setUsMode('ren')">綠電占比</button>
+    </div>
+    <div class="map-flex">
+      <div class="map-box" id="usmapWrap">
+        <div class="map-title">
+          <span>AMERICAS POWER CHART · 州級電價與綠電</span>
+          <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+        </div>
+        <div id="usmapBox"></div>
+        <div class="map-tip" id="usTip"></div>
+        <div class="map-legend" id="usLegend"></div>
+      </div>
+      <div>
+        <select class="sel" id="usSelect" aria-label="選擇州別"></select>
+        <div class="state-panel" id="usPanel" style="margin-top:14px">
+          <p class="empty">將游標移到地圖上的州別，或使用上方選單。</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid-strip">
+      <h3><span class="dot"></span>美國八大電網速覽——您落地的州，由誰調度？</h3>
+      <ul class="grid-list" id="gridList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 電價趨勢預覽 ============ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">TREND · 兩年電價航跡</p>
+      <h2 class="title">電價趨勢（2024/07 – 2026/06）</h2>
+      <p>台灣走「審議會階梯」：2024/10 產業電價調漲後連續凍漲；美國走「市場斜坡」：住宅均價隨燃料與資料中心負載緩升，加州持續領漲。完整分析請見台灣與美洲深度頁。</p>
+    </div>
+    <div class="chart-grid2">
+      <div class="chart-card">
+        <h3>🇹🇼 台灣平均電價（NT$/度）</h3>
+        <div class="chart-legend">
+          <span class="lg"><span class="sw" style="background:#0FA3A8"></span>全體平均</span>
+          <span class="lg"><span class="sw" style="background:#E8A23D"></span>產業（高壓以上）</span>
+          <span class="lg"><span class="sw" style="background:#8E6FC0"></span>住宅</span>
+        </div>
+        <div id="twTrendHome"></div>
+        <p class="src">來源：台電電價表、經濟部電價費率審議會（整理值）</p>
+      </div>
+      <div class="chart-card">
+        <h3>🇺🇸 美國住宅電價（¢/kWh）</h3>
+        <div class="chart-legend">
+          <span class="lg"><span class="sw" style="background:#0FA3A8"></span>全美平均</span>
+          <span class="lg"><span class="sw" style="background:#C94F4F"></span>加州</span>
+          <span class="lg"><span class="sw" style="background:#3F86C8"></span>德州</span>
+          <span class="lg"><span class="sw" style="background:#3FA66A"></span>喬治亞</span>
+        </div>
+        <div id="usTrendHome"></div>
+        <p class="src">來源：EIA Electric Power Monthly Table 5.6.A（整理值）</p>
+      </div>
+    </div>
+    <p class="center mt-40">
+      <a class="btn btn-teal" href="taiwan.html">台灣電力深度頁 →</a>
+      <a class="btn btn-amber" href="americas.html" style="margin-left:10px">美洲電力深度頁 →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============ 美洲國家預覽 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">BEYOND THE US · 美洲綠電走廊</p>
+      <h2 class="title">美洲重點國家電力速覽</h2>
+      <p>近岸外包讓墨西哥成為台商新戰場；加拿大水電、巴西與智利的綠電走廊，則是 RE100 供應鏈的下一站。</p>
+    </div>
+    <div class="ctry-grid" id="ctryGrid"></div>
+    <p class="center mt-40"><a class="btn btn-ghost" style="border-color:rgba(10,28,48,.3);color:var(--ink)" href="americas.html">查看八國完整資料 →</a></p>
+  </div>
+</section>
+
+<footer id="foot"></footer>
+
+<script src="assets/vendor/d3.min.js"></script>
+<script src="assets/vendor/topojson-client.min.js"></script>
+<script src="assets/js/data-taiwan.js"></script>
+<script src="assets/js/data-us.js"></script>
+<script src="assets/js/data-trends.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/map-taiwan.js"></script>
+<script src="assets/js/map-us.js"></script>
+<script>
+/* 快照對照表 */
+document.getElementById("snapBody").innerHTML = SUPPLY_SNAPSHOT
+  .map(r => `<tr><td><b>${r.k}</b></td><td>${r.tw}</td><td>${r.us}</td></tr>`).join("");
+
+/* 電網速覽 */
+document.getElementById("gridList").innerHTML = US_GRID_NOTES
+  .map(g => `<li><b>${g.grid}</b>${g.area}｜${g.trait}</li>`).join("");
+
+/* 美洲國家卡（首頁取 4 國） */
+document.getElementById("ctryGrid").innerHTML = AMERICAS_COUNTRIES.slice(0, 4)
+  .map(c => `<div class="ctry-card">
+    <div class="flagline"><h3>${c.name}</h3><span class="en">${c.en}</span></div>
+    <span class="price">${c.price}</span>
+    <div class="renbar"><i style="width:${c.ren}%"></i></div>
+    <span class="renlabel">綠電占比約 ${c.ren}%</span>
+    <p>${c.note}</p>
+    <span class="src">來源：${c.source}</span>
+  </div>`).join("");
+
+/* 首頁趨勢圖 */
+PA_lineChart({ el: "twTrendHome", months: TREND_MONTHS, unit: " NT$/度",
+  yFmt: d => "NT$" + d,
+  series: [
+    { name: "全體平均", color: "#0FA3A8", values: TW_PRICE_TREND.avg },
+    { name: "產業", color: "#E8A23D", values: TW_PRICE_TREND.industrial },
+    { name: "住宅", color: "#8E6FC0", values: TW_PRICE_TREND.residential }
+  ], events: TW_PRICE_TREND.events });
+PA_lineChart({ el: "usTrendHome", months: TREND_MONTHS, unit: " ¢/kWh",
+  yFmt: d => d + "¢",
+  series: [
+    { name: "全美平均", color: "#0FA3A8", values: US_PRICE_TREND.usAvg },
+    { name: "加州", color: "#C94F4F", values: US_PRICE_TREND.CA },
+    { name: "德州", color: "#3F86C8", values: US_PRICE_TREND.TX },
+    { name: "喬治亞", color: "#3FA66A", values: US_PRICE_TREND.GA }
+  ], events: US_PRICE_TREND.events });
+</script>
+</body>
+</html>

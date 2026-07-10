@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美洲電力深度頁｜台美電力資源藍圖</title>
+<meta name="description" content="美洲電力資源深度分析：美國 50 州＋DC 電價與綠電總表、八大電網、每週供需、兩年電價趨勢，以及加拿大、墨西哥、巴西等 8 國電力速覽。資料整理自 EIA、DOE、FERC 與各電力公司。">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav class="nav" id="nav"></nav>
+
+<!-- ============ 頁首 ============ -->
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">DEEP DIVE 02 · AMERICAS POWER PROFILE</p>
+    <h1>美洲電力深度頁</h1>
+    <p>美國電價「一州一世界」——住宅電價從華盛頓州約 11.9¢ 到夏威夷逾 40¢，差距近四倍；電力市場更分成八大調度體系。本頁提供 50 州＋DC 完整電價與綠電總表、每週供需、兩年趨勢，並延伸至加拿大、墨西哥、巴西等 8 個美洲重點國家。</p>
+  </div>
+</header>
+
+<!-- ============ 全美儀表板 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">NATIONAL DASHBOARD · 全美關鍵指標</p>
+      <h2 class="title">美國電力系統，一眼看懂</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><span class="tag">RESIDENTIAL</span><b>17.5 ¢</b><p>全美住宅平均電價（/kWh，2025）<br>≈ NT$5.6/度；州際差距近四倍</p></div>
+      <div class="stat-card"><span class="tag">INDUSTRIAL</span><b>8.9 ¢</b><p>全美工業平均電價（/kWh，2025）<br>≈ NT$2.8/度，低於台灣產業電價</p></div>
+      <div class="stat-card"><span class="tag">PEAK LOAD</span><b>~745 GW</b><p>Lower 48 夏季尖峰需求<br>資料中心是最強負載成長引擎</p></div>
+      <div class="stat-card"><span class="tag">RENEWABLE</span><b>~23%</b><p>風＋光＋水發電占比（2025）<br>加計核能，低碳電力約四成</p></div>
+    </div>
+
+    <div class="chart-grid2 mt-40">
+      <div class="chart-card">
+        <h3>2025 年美國發電結構（占比 %）</h3>
+        <div id="usMix">
+          <div class="mixbar"></div>
+          <div class="mix-legend"></div>
+        </div>
+        <p class="src">燃氣為第一大電源；太陽能是成長最快的新增裝置，燃煤持續退場。來源：EIA Electric Power Monthly（約值）</p>
+      </div>
+      <div class="chart-card">
+        <h3>台美工業用電成本對照（概算）</h3>
+        <div class="kv" style="margin-top:8px">
+          <div class="cell"><small>台灣產業電價</small><b>NT$ 4.27</b><small>／度 ≈ 13.3 ¢USD</small></div>
+          <div class="cell amber"><small>美國工業平均</small><b>8.9 ¢</b><small>/kWh ≈ NT$2.85／度</small></div>
+          <div class="cell green"><small>最低州（華盛頓等）</small><b>~6–7 ¢</b><small>/kWh 水電州</small></div>
+          <div class="cell"><small>最高州（夏威夷）</small><b>~34 ¢</b><small>/kWh 島嶼燃油系統</small></div>
+        </div>
+        <p class="src">概算匯率 1USD=32TWD。美國工業電價普遍低於台灣，但需另計輸配容量費、尖峰費率（Demand Charge）與併網時程成本。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 美國互動地圖 ============ -->
+<section class="section alt" id="us-map">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">INTERACTIVE MAP · 州級電力檔案</p>
+      <h2 class="title">游標移入，展開州級電力檔案</h2>
+      <p>可切換三種著色模式：住宅電價、工業電價、綠電占比。點擊任一州（或使用選單）可展開完整檔案，含台商佈局備註。</p>
+    </div>
+    <div class="cat-tabs" id="usModeTabs">
+      <button class="cat-tab active" data-mode="rPrice" onclick="PA_setUsMode('rPrice')">住宅電價</button>
+      <button class="cat-tab" data-mode="iPrice" onclick="PA_setUsMode('iPrice')">工業電價</button>
+      <button class="cat-tab" data-mode="ren" onclick="PA_setUsMode('ren')">綠電占比</button>
+    </div>
+    <div class="map-flex">
+      <div class="map-box" id="usmapWrap">
+        <div class="map-title">
+          <span>AMERICAS POWER CHART · 州級電價與綠電</span>
+          <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+        </div>
+        <div id="usmapBox"></div>
+        <div class="map-tip" id="usTip"></div>
+        <div class="map-legend" id="usLegend"></div>
+      </div>
+      <div>
+        <select class="sel" id="usSelect" aria-label="選擇州別"></select>
+        <div class="state-panel" id="usPanel" style="margin-top:14px">
+          <p class="empty">將游標移到地圖上的州別，或使用上方選單。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 50 州總表 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">STATE TABLE · 50 州＋DC 總表</p>
+      <h2 class="title">州級電價與綠電總表</h2>
+      <p>點擊表頭排序——選址時最常用的三種排法：工業電價由低到高、綠電占比由高到低、以及鎖定同一電網（如 ERCOT、PJM）比較。點擊列可回到上方地圖檢視該州。</p>
+    </div>
+    <div class="tbl-wrap" style="max-height:560px;overflow:auto">
+      <table class="tbl" id="usTbl">
+        <thead><tr>
+          <th data-k="0">州別</th>
+          <th data-k="1" data-num="1">住宅電價 ¢/kWh</th>
+          <th data-k="2" data-num="1">工業電價 ¢/kWh</th>
+          <th data-k="3" data-num="1">綠電占比 %</th>
+          <th data-k="4">電網</th>
+          <th data-k="5">主力電源</th>
+        </tr></thead>
+        <tbody id="usTblBody"></tbody>
+      </table>
+    </div>
+    <p class="notice" style="margin-top:14px">來源：EIA Electric Power Monthly Table 5.6.A、EIA State Electricity Profiles（2025 約值）；以 EIA 公告為準。</p>
+  </div>
+</section>
+
+<!-- ============ 每週供需與趨勢 ============ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">WEEKLY & TREND · 供需與電價航跡</p>
+      <h2 class="title">每週供需與兩年電價趨勢</h2>
+      <p>美國電價走「市場斜坡」：燃料價格、輸配投資與資料中心負載推動住宅均價緩升；加州因輸配與野火成本持續領漲，德州、喬治亞相對平緩。即時供需可查 EIA Hourly Electric Grid Monitor。</p>
+    </div>
+    <div class="chart-grid2">
+      <div class="chart-card">
+        <h3>🇺🇸 Lower 48・代表夏季週日尖峰需求（GW）</h3>
+        <div class="chart-legend">
+          <span class="lg"><span class="sw" style="background:#3F86C8"></span>日尖峰需求</span>
+          <span class="lg"><span class="sw" style="background:#E8A23D"></span>可調度容量（示意）</span>
+        </div>
+        <div id="usWeekly"></div>
+        <p class="src">ERCOT、PJM 為尖峰壓力最大區；日內光電使淨負載尖峰移至傍晚。來源：EIA Hourly Electric Grid Monitor（代表週整理）</p>
+      </div>
+      <div class="chart-card">
+        <h3>🇺🇸 住宅電價趨勢（¢/kWh，2024/07–2026/06）</h3>
+        <div class="chart-legend">
+          <span class="lg"><span class="sw" style="background:#0FA3A8"></span>全美平均</span>
+          <span class="lg"><span class="sw" style="background:#C94F4F"></span>加州</span>
+          <span class="lg"><span class="sw" style="background:#3F86C8"></span>德州</span>
+          <span class="lg"><span class="sw" style="background:#8E6FC0"></span>亞利桑那</span>
+          <span class="lg"><span class="sw" style="background:#3FA66A"></span>喬治亞</span>
+        </div>
+        <div id="usTrendFull"></div>
+        <p class="src">來源：EIA Electric Power Monthly Table 5.6.A（整理值）</p>
+      </div>
+    </div>
+
+    <div class="grid-strip">
+      <h3><span class="dot"></span>美國八大電網——您落地的州，由誰調度？</h3>
+      <ul class="grid-list" id="gridList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 美洲八國 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">BEYOND THE US · 美洲八國電力速覽</p>
+      <h2 class="title">從加拿大水電到智利烈日</h2>
+      <p>美洲不只美國：加拿大水電是北美最便宜的綠電之一；墨西哥是近岸外包最大熱區但北部電網吃緊；巴西與哥斯大黎加的電網綠電占比逼近九成以上。以下為 8 國電力檔案。</p>
+    </div>
+    <div class="ctry-grid" id="ctryGridAll"></div>
+    <p class="notice" style="margin-top:18px">各國電價為公開資料整理之區間約值，實際依用戶類別、時段與匯率變動；以各國電力主管機關與電力公司公告為準。</p>
+  </div>
+</section>
+
+<footer id="foot"></footer>
+
+<script src="assets/vendor/d3.min.js"></script>
+<script src="assets/vendor/topojson-client.min.js"></script>
+<script src="assets/js/data-us.js"></script>
+<script src="assets/js/data-trends.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/map-us.js"></script>
+<script>
+/* 美國電源結構 */
+PA_mixBar("usMix", US_NATIONAL.mix2025, {
+  gas:     { name: "燃氣", cls: "gas" },
+  coal:    { name: "燃煤", cls: "coal" },
+  nuclear: { name: "核能", cls: "nuclear" },
+  wind:    { name: "風電", cls: "wind" },
+  solar:   { name: "太陽能", cls: "solar" },
+  hydro:   { name: "水力", cls: "hydro" },
+  others:  { name: "其他", cls: "oil" }
+});
+
+/* 50 州總表 */
+document.getElementById("usTblBody").innerHTML = Object.entries(US_STATES)
+  .sort((a, b) => a[1].name.localeCompare(b[1].name, "zh-Hant"))
+  .map(([fips, s]) => `<tr style="cursor:pointer" onclick="showUsState('${fips}');document.getElementById('us-map').scrollIntoView({behavior:'smooth'})">
+    <td><b>${s.name}</b> <span class="mono" style="font-size:11px;color:#5B6B7C">${s.abbr}</span></td>
+    <td class="num" data-v="${s.rPrice}">${s.rPrice.toFixed(1)}</td>
+    <td class="num" data-v="${s.iPrice}">${s.iPrice.toFixed(1)}</td>
+    <td class="num" data-v="${s.ren}">${s.ren}</td>
+    <td>${s.grid}</td>
+    <td>${s.main}</td>
+  </tr>`).join("");
+PA_sortableTable("usTbl");
+
+/* 每週供需 */
+PA_weeklyChart({ el: "usWeekly", data: US_WEEKLY });
+
+/* 兩年趨勢（完整版含 AZ） */
+PA_lineChart({ el: "usTrendFull", months: TREND_MONTHS, unit: " ¢/kWh",
+  yFmt: d => d + "¢",
+  series: [
+    { name: "全美平均", color: "#0FA3A8", values: US_PRICE_TREND.usAvg },
+    { name: "加州", color: "#C94F4F", values: US_PRICE_TREND.CA },
+    { name: "德州", color: "#3F86C8", values: US_PRICE_TREND.TX },
+    { name: "亞利桑那", color: "#8E6FC0", values: US_PRICE_TREND.AZ },
+    { name: "喬治亞", color: "#3FA66A", values: US_PRICE_TREND.GA }
+  ], events: US_PRICE_TREND.events });
+
+/* 電網速覽 */
+document.getElementById("gridList").innerHTML = US_GRID_NOTES
+  .map(g => `<li><b>${g.grid}</b>${g.area}｜${g.trait}</li>`).join("");
+
+/* 美洲八國 */
+document.getElementById("ctryGridAll").innerHTML = AMERICAS_COUNTRIES
+  .map(c => `<div class="ctry-card">
+    <div class="flagline"><h3>${c.name}</h3><span class="en">${c.en}</span></div>
+    <span class="price">${c.price}</span>
+    <div class="renbar"><i style="width:${c.ren}%"></i></div>
+    <span class="renlabel">綠電占比約 ${c.ren}%｜主力：${c.main}</span>
+    <p>${c.note}</p>
+    <span class="src">來源：${c.source}</span>
+  </div>`).join("");
+</script>
+</body>
+</html>

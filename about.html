@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方法與資料來源｜台美電力資源藍圖</title>
+<meta name="description" content="台美電力資源藍圖的資料方法論：資料範圍、更新頻率、名詞解釋，以及台電、經濟部能源署、EIA、DOE、FERC 與各國電力公司等主要資料來源與免責聲明。">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav class="nav" id="nav"></nav>
+
+<!-- ============ 頁首 ============ -->
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">METHODOLOGY & SOURCES · 航海圖的測繪方式</p>
+    <h1>方法與資料來源</h1>
+    <p>一張可信的航海圖，必須說清楚水深是怎麼量的。本頁說明本站資料的範圍、整理方式、名詞定義與所有原始來源——所有決策級數據，請以各機構官方公告為準。</p>
+  </div>
+</header>
+
+<!-- ============ 方法論 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">METHODOLOGY · 資料方法論</p>
+      <h2 class="title">資料怎麼來、怎麼讀</h2>
+    </div>
+    <div class="about-grid">
+      <div class="chart-card">
+        <h3>① 資料範圍</h3>
+        <p style="font-size:14.5px;line-height:1.85">涵蓋<b>台灣 22 縣市</b>（電力角色、主要電廠、綠電資源、分區供需）、<b>美國 50 州＋華盛頓特區</b>（住宅/工業電價、綠電占比、電網歸屬、主力電源、台商佈局備註），以及<b>美洲 8 個重點國家</b>（加拿大、墨西哥、巴西、智利、阿根廷、哥倫比亞、秘魯、哥斯大黎加）。趨勢資料為 2024/07–2026/06 共 24 個月的電價序列，與台美各一組代表週供需。</p>
+      </div>
+      <div class="chart-card">
+        <h3>② 整理方式</h3>
+        <p style="font-size:14.5px;line-height:1.85">電價與占比為各機構<b>公開統計之整理約值</b>：台灣電價取自台電電價表與電價費率審議會決議；美國州級電價取自 EIA Electric Power Monthly（Table 5.6.A）與 State Electricity Profiles；綠電占比含水力。美洲各國以該國調度機構與電力公司公開統計為主。趨勢曲線在月資料缺口處以線性內插補齊，屬<b>趨勢判讀用途</b>，非交易級數據。</p>
+      </div>
+      <div class="chart-card">
+        <h3>③ 更新頻率</h3>
+        <p style="font-size:14.5px;line-height:1.85">本站為靜態資料快照，<b>最後整理：2026 年 7 月</b>。台灣電價於每半年電價審議後更新；美國州級電價隨 EIA 月報更新（約落後兩個月）；每週供需為「代表週」型態展示，<b>即時數據</b>請直接查閱台電「今日電力資訊」與 EIA Hourly Electric Grid Monitor（連結見下方來源清單）。</p>
+      </div>
+      <div class="chart-card">
+        <h3>④ 匯率與單位</h3>
+        <p style="font-size:14.5px;line-height:1.85">台灣電價單位為 <b>NT$/度</b>（1 度 = 1 kWh）；美國為 <b>¢/kWh</b>（美分）。跨國比較時以 <b>1 USD ≈ 32 TWD</b> 概算：NT$4.27/度 ≈ 13.3¢/kWh。實際成本另受輸配容量費（Demand Charge）、時間電價（TOU）、稅費與綠電附加費影響，選址評估請以當地電力公司費率表試算。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 名詞解釋 ============ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">GLOSSARY · 讀圖前的五個名詞</p>
+      <h2 class="title">名詞解釋</h2>
+    </div>
+    <div class="pill-list">
+      <div class="pill"><b>備轉容量率</b><span>台電每日供電能力減去尖峰負載後的餘裕比率。≥10% 綠燈（供電充裕）、6–10% 黃/橙燈、＜6% 進入警戒。本站每週供需圖上的百分比即為此值。</span></div>
+      <div class="pill"><b>ISO / RTO（電網調度機構）</b><span>美國約三分之二電力由獨立系統調度機構（如 ERCOT、PJM、CAISO、MISO）以批發市場調度；東南部與西北部則以垂直整合公用事業為主，與電力公司直接議約。</span></div>
+      <div class="pill"><b>中電北送</b><span>台灣北部負載約四成但供不應求，需由中部（台中電廠、麥寮等）經輸電幹線北送支援。北部設廠（尤其資料中心）評估供電時的關鍵詞。</span></div>
+      <div class="pill"><b>REC / T-REC（再生能源憑證）</b><span>證明 1,000 度綠電環境效益的憑證。台灣為 T-REC（國家再生能源憑證中心）；美國 REC 市場成熟，另有 PPA/VPPA（實體/虛擬購電協議）等採購工具，是 RE100 承諾的主要履約途徑。</span></div>
+      <div class="pill"><b>Demand Charge（需量費）</b><span>美國工業電費常按「當月最高需量（kW）」另計容量費，佔總電費比重可達三成以上——比較台美電價時，不能只看每度電價。</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 資料來源 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">SOURCES · 原始資料來源</p>
+      <h2 class="title">所有航標，都可回溯</h2>
+      <p>以下為本站數據的原始出處。進行選址、簽約等決策時，請直接以這些機構的最新公告為準。</p>
+    </div>
+    <div class="about-grid">
+      <div class="src-box">
+        <b>🇹🇼 台灣</b>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14px;line-height:2">
+          <li><a href="https://www.taipower.com.tw" target="_blank" rel="noopener">台灣電力公司</a> — 電價表、電源開發、系統運轉</li>
+          <li><a href="https://www.taipower.com.tw/tc/page.aspx?mid=206" target="_blank" rel="noopener">台電「今日電力資訊」</a> — 即時供需與備轉容量率</li>
+          <li><a href="https://www.moeaea.gov.tw" target="_blank" rel="noopener">經濟部能源署</a> — 能源統計月報、再生能源裝置容量</li>
+          <li><a href="https://www.trec.org.tw" target="_blank" rel="noopener">國家再生能源憑證中心（T-REC）</a> — 綠電憑證與交易</li>
+        </ul>
+      </div>
+      <div class="src-box">
+        <b>🇺🇸 美國（聯邦）</b>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14px;line-height:2">
+          <li><a href="https://www.eia.gov/electricity/monthly/" target="_blank" rel="noopener">EIA Electric Power Monthly</a> — 州級電價（Table 5.6.A）</li>
+          <li><a href="https://www.eia.gov/electricity/gridmonitor/" target="_blank" rel="noopener">EIA Hourly Electric Grid Monitor</a> — 即時供需</li>
+          <li><a href="https://www.eia.gov/electricity/state/" target="_blank" rel="noopener">EIA State Electricity Profiles</a> — 各州電源結構</li>
+          <li><a href="https://www.energy.gov" target="_blank" rel="noopener">U.S. DOE 能源部</a> — 政策與輸電計畫</li>
+          <li><a href="https://www.ferc.gov" target="_blank" rel="noopener">FERC 聯邦能源管制委員會</a> — 批發市場與併網規則</li>
+        </ul>
+      </div>
+      <div class="src-box">
+        <b>🇺🇸 主要電網調度機構</b>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14px;line-height:2">
+          <li><a href="https://www.ercot.com" target="_blank" rel="noopener">ERCOT</a>（德州）　<a href="https://www.pjm.com" target="_blank" rel="noopener">PJM</a>（中大西洋）</li>
+          <li><a href="https://www.caiso.com" target="_blank" rel="noopener">CAISO</a>（加州）　<a href="https://www.misoenergy.org" target="_blank" rel="noopener">MISO</a>（中西部）</li>
+          <li><a href="https://www.spp.org" target="_blank" rel="noopener">SPP</a>　<a href="https://www.nyiso.com" target="_blank" rel="noopener">NYISO</a>　<a href="https://www.iso-ne.com" target="_blank" rel="noopener">ISO-NE</a></li>
+          <li>垂直整合區代表：<a href="https://www.georgiapower.com" target="_blank" rel="noopener">Georgia Power</a>、<a href="https://www.tva.com" target="_blank" rel="noopener">TVA</a></li>
+        </ul>
+      </div>
+      <div class="src-box">
+        <b>🌎 美洲各國</b>
+        <ul style="margin:10px 0 0;padding-left:18px;font-size:14px;line-height:2">
+          <li>加拿大：<a href="https://www.hydroquebec.com" target="_blank" rel="noopener">Hydro-Québec</a>、加拿大統計局</li>
+          <li>墨西哥：<a href="https://www.cfe.mx" target="_blank" rel="noopener">CFE</a>、SENER 能源部</li>
+          <li>巴西：<a href="https://www.ons.org.br" target="_blank" rel="noopener">ONS</a>、<a href="https://www.gov.br/aneel" target="_blank" rel="noopener">ANEEL</a></li>
+          <li>智利：<a href="https://www.cne.cl" target="_blank" rel="noopener">CNE</a>、Coordinador Eléctrico Nacional</li>
+          <li>阿根廷 CAMMESA｜哥倫比亞 XM／UPME｜秘魯 COES｜哥斯大黎加 ICE</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote mt-40">
+      <p><b>免責聲明</b>　本站所有電價、供需與占比數據，為公開資料整理之近似值，僅供趨勢判讀與初步評估參考，不構成投資、選址或締約建議。各項數據以台電、經濟部能源署、U.S. EIA／DOE／FERC 及各國電力主管機關與電力公司之官方公告為準。地圖之行政區界僅為視覺化用途。</p>
+    </div>
+
+    <p class="center mt-40">
+      <a class="btn btn-teal" href="index.html">回到互動電力地圖</a>
+      <a class="btn btn-ghost" style="border-color:rgba(10,28,48,.3);color:var(--ink);margin-left:10px" href="https://falconkenny.github.io/gf-website/contact.html" target="_blank" rel="noopener">預約佈局諮詢 →</a>
+    </p>
+  </div>
+</section>
+
+<footer id="foot"></footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

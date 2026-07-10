@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台灣電力深度頁｜台美電力資源藍圖</title>
+<meta name="description" content="台灣電力資源深度分析：全國電源結構與再生能源裝置容量、分區供需與中電北送、每週系統供需、兩年電價趨勢與 22 縣市電力檔案。資料整理自台電與經濟部能源署。">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav class="nav" id="nav"></nav>
+
+<!-- ============ 頁首 ============ -->
+<header class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">DEEP DIVE 01 · TAIWAN POWER PROFILE</p>
+    <h1>台灣電力深度頁</h1>
+    <p>台灣採台電統一費率，全國電價一致；真正的差異在「電從哪裡來、怎麼送、綠電在哪」。本頁整理全國電源結構、分區供需、每週系統供需、兩年電價趨勢與 22 縣市電力檔案，供赴台佈局的企業快速掌握。</p>
+  </div>
+</header>
+
+<!-- ============ 全國電力儀表板 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">NATIONAL DASHBOARD · 全國關鍵指標</p>
+      <h2 class="title">台灣電力系統，一眼看懂</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><span class="tag">AVG TARIFF</span><b>NT$ 3.70</b><p>全體平均電價（每度）<br>2024/10 調整後，2025–2026 連續凍漲</p></div>
+      <div class="stat-card"><span class="tag">INDUSTRIAL</span><b>NT$ 4.27</b><p>產業（高壓以上）平均電價（每度）<br>約 13.3 ¢USD，低於美國多數州住宅價</p></div>
+      <div class="stat-card"><span class="tag">PEAK LOAD</span><b>41.7 GW</b><p>歷史尖峰負載（2025 夏季約值）<br>半導體與 AI 資料中心為主要成長動能</p></div>
+      <div class="stat-card"><span class="tag">RENEWABLE</span><b>~15%</b><p>再生能源發電占比（2025）<br>光電 14.2GW＋離岸風電 3.0GW 裝置容量</p></div>
+    </div>
+
+    <div class="chart-grid2 mt-40">
+      <div class="chart-card">
+        <h3>2025 年發電結構（占比 %）</h3>
+        <div id="twMix">
+          <div class="mixbar"></div>
+          <div class="mix-legend"></div>
+        </div>
+        <p class="src">核電機組已全數除役（2025/05 核三 2 號機停機）；燃氣為第一大電源，「增氣減煤＋衝刺綠電」為主軸。來源：台電、經濟部能源署（約值）</p>
+      </div>
+      <div class="chart-card">
+        <h3>再生能源裝置容量（GW，2025 約值）</h3>
+        <div id="twRen">
+          <div class="mixbar"></div>
+          <div class="mix-legend"></div>
+        </div>
+        <p class="src">太陽光電集中雲嘉南高屏；離岸風電集中彰化外海，苗栗竹南為發源地。合計逾 21GW，持續成長中。來源：經濟部能源署（約值）</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 台灣互動地圖 ============ -->
+<section class="section alt" id="tw-map">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">INTERACTIVE MAP · 縣市電力檔案</p>
+      <h2 class="title">游標移入，展開縣市電力檔案</h2>
+      <p>電價全國一致，選址關鍵是縣市的「電力角色」：桃園、台中、高雄是電源重鎮；台北、新竹是負載中心；彰化、雲嘉南是綠電重鎮——想簽 CPPA 買綠電，離電源越近，越有談判空間。</p>
+    </div>
+    <div class="map-flex">
+      <div class="map-box" id="twmapWrap">
+        <div class="map-title">
+          <span>FORMOSA POWER CHART · 縣市電力角色</span>
+          <span class="mono" style="font-size:10px">HOVER FOR DATA</span>
+        </div>
+        <div id="twmapBox"></div>
+        <div class="map-tip" id="twTip"></div>
+        <div class="map-legend">
+          <span class="lg"><span class="sw" style="background:#3F86C8"></span>電源重鎮</span>
+          <span class="lg"><span class="sw" style="background:#3FA66A"></span>綠能重鎮</span>
+          <span class="lg"><span class="sw" style="background:#8E6FC0"></span>負載中心</span>
+          <span class="lg"><span class="sw" style="background:#2C6EA8"></span>供需並重</span>
+          <span class="lg"><span class="sw" style="background:#4E6B84"></span>離島獨立電網</span>
+        </div>
+      </div>
+      <div>
+        <select class="sel" id="twSelect" aria-label="選擇縣市"></select>
+        <div class="state-panel" id="twPanel" style="margin-top:14px">
+          <p class="empty">將游標移到地圖上的縣市，或使用上方選單。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 分區供需 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">REGIONAL BALANCE · 分區供需</p>
+      <h2 class="title">北中南東：電往哪裡送？</h2>
+      <p>台灣電網分北、中、南、東四區運轉。北部負載約四成卻供不應求，靠「中電北送」補位——這是評估北部設廠（尤其資料中心）時，必須放進風險清單的一條。</p>
+    </div>
+    <div class="ctry-grid" id="regionGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 每週供需 ============ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">WEEKLY BALANCE · 每週電力供需</p>
+      <h2 class="title">代表週：尖峰負載 vs 供電能力</h2>
+      <p>台電每日公布系統供需。夏季代表週的型態很固定：平日尖峰逼近 41–42GW，週末回落；備轉容量率 ≥10% 為綠燈、6–10% 進入黃橙燈。長條為尖峰負載、虛線為供電能力、百分比為當日備轉容量率。</p>
+    </div>
+    <div class="chart-card">
+      <h3>🇹🇼 台灣・代表夏季週系統供需（GW）</h3>
+      <div class="chart-legend">
+        <span class="lg"><span class="sw" style="background:#3F86C8"></span>尖峰負載</span>
+        <span class="lg"><span class="sw" style="background:#E8A23D"></span>系統供電能力</span>
+        <span class="lg"><span class="sw" style="background:#2C7A4B"></span>備轉容量率（%）</span>
+      </div>
+      <div id="twWeekly"></div>
+      <p class="src">尖峰多落在 13–14 時（光電高峰）與 19–20 時（夜尖峰）。即時數據請見台電「今日電力資訊」。來源：台電系統運轉資料（代表週整理）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 兩年電價趨勢 ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">TARIFF TREND · 兩年電價航跡</p>
+      <h2 class="title">電價趨勢（2024/07 – 2026/06）</h2>
+      <p>台灣電價由「電價費率審議會」每半年檢討一次，走的是階梯而非斜坡：2024/10 產業電價平均調漲 12.5% 後，2025 年兩次審議均凍漲。對企業的意義是——<b>電價可預測性高，但政策調整一次到位</b>，簽長約與自建綠電是對沖工具。</p>
+    </div>
+    <div class="chart-card">
+      <h3>🇹🇼 台灣電價（NT$/度）</h3>
+      <div class="chart-legend">
+        <span class="lg"><span class="sw" style="background:#0FA3A8"></span>全體平均</span>
+        <span class="lg"><span class="sw" style="background:#E8A23D"></span>產業（高壓以上）</span>
+        <span class="lg"><span class="sw" style="background:#8E6FC0"></span>住宅</span>
+      </div>
+      <div id="twTrendFull"></div>
+      <p class="src">來源：台電公司電價表、經濟部電價費率審議會（整理值）。1 NT$/度 ≈ 3.2 ¢USD/kWh（以 1USD=32TWD 概算）。</p>
+    </div>
+    <div class="grid-strip">
+      <h3><span class="dot"></span>近兩年三個關鍵節點</h3>
+      <ul class="grid-list">
+        <li><b>2024/10</b>產業電價平均調漲 12.5%，民生凍漲——高壓以上大戶感受最深。</li>
+        <li><b>2025/04</b>電價審議會決議全面凍漲，穩定產業成本預期。</li>
+        <li><b>2025/10</b>民生電價續凍；台電財務缺口由政府增資與撥補支應，中期仍有調價壓力。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 縣市資料表 ============ -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">COUNTY TABLE · 22 縣市總表</p>
+      <h2 class="title">縣市電力檔案總表</h2>
+      <p>點擊表頭可排序；點擊列可回到上方地圖檢視該縣市。</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="tbl" id="twTbl">
+        <thead><tr>
+          <th data-k="0">縣市</th>
+          <th data-k="1">電網分區</th>
+          <th data-k="2">電力角色</th>
+          <th data-k="3">綠電資源</th>
+          <th data-k="4">主要電廠／電源</th>
+        </tr></thead>
+        <tbody id="twTblBody"></tbody>
+      </table>
+    </div>
+    <p class="notice" style="margin-top:14px">來源：台電電源開發與系統運轉公開資料、經濟部能源署（整理值）；以各機構公告為準。</p>
+  </div>
+</section>
+
+<footer id="foot"></footer>
+
+<script src="assets/vendor/d3.min.js"></script>
+<script src="assets/vendor/topojson-client.min.js"></script>
+<script src="assets/js/data-taiwan.js"></script>
+<script src="assets/js/data-trends.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/map-taiwan.js"></script>
+<script>
+/* 電源結構 */
+PA_mixBar("twMix", TW_NATIONAL.mix2025, {
+  gas:      { name: "燃氣", cls: "gas" },
+  coal:     { name: "燃煤", cls: "coal" },
+  renewable:{ name: "再生能源", cls: "ren" },
+  hydro:    { name: "慣常水力", cls: "hydro" },
+  oilOther: { name: "燃油/其他", cls: "oil" },
+  nuclear:  { name: "核能", cls: "nuclear" }
+});
+
+/* 再生能源裝置容量（GW → 占比呈現，legend 標 GW） */
+(function () {
+  const r = TW_NATIONAL.renewableInstalled;
+  const total = Object.values(r).reduce((a, b) => a + b, 0);
+  const meta = {
+    solar:       { name: "太陽光電", cls: "solar" },
+    offshoreWind:{ name: "離岸風電", cls: "wind" },
+    onshoreWind: { name: "陸域風電", cls: "hydro" },
+    hydro:       { name: "水力", cls: "gas" },
+    others:      { name: "其他（生質/地熱）", cls: "oil" }
+  };
+  const box = document.getElementById("twRen");
+  box.querySelector(".mixbar").innerHTML = Object.entries(r)
+    .map(([k, v]) => `<i class="c-${meta[k].cls}" style="width:${(v / total * 100).toFixed(1)}%" title="${meta[k].name} ${v}GW"></i>`).join("");
+  box.querySelector(".mix-legend").innerHTML = Object.entries(r)
+    .map(([k, v]) => `<span class="lg"><span class="sw c-${meta[k].cls}"></span>${meta[k].name} ${v} GW</span>`).join("");
+})();
+
+/* 分區供需卡片 */
+document.getElementById("regionGrid").innerHTML = Object.values(TW_REGIONS)
+  .map(rg => `<div class="ctry-card">
+    <div class="flagline"><h3>${rg.name}</h3><span class="en">${rg.share}</span></div>
+    <div class="chip-row" style="margin:10px 0 12px">
+      <span class="chip ${rg.balance.includes("不") ? "red" : "green"}">${rg.balance}</span>
+      <span class="chip amber">${rg.flow}</span>
+    </div>
+    <p>${rg.detail}</p>
+  </div>`).join("");
+
+/* 每週供需圖 */
+PA_weeklyChart({ el: "twWeekly", data: TW_WEEKLY });
+
+/* 兩年電價趨勢（完整版） */
+PA_lineChart({ el: "twTrendFull", months: TREND_MONTHS, unit: " NT$/度",
+  yFmt: d => "NT$" + d,
+  series: [
+    { name: "全體平均", color: "#0FA3A8", values: TW_PRICE_TREND.avg },
+    { name: "產業", color: "#E8A23D", values: TW_PRICE_TREND.industrial },
+    { name: "住宅", color: "#8E6FC0", values: TW_PRICE_TREND.residential }
+  ], events: TW_PRICE_TREND.events });
+
+/* 縣市總表 */
+document.getElementById("twTblBody").innerHTML = Object.entries(TW_COUNTIES)
+  .map(([code, c]) => {
+    const rg = TW_REGIONS[c.grid] || TW_REGIONS.islands;
+    return `<tr style="cursor:pointer" onclick="showCounty('${code}');document.getElementById('tw-map').scrollIntoView({behavior:'smooth'})">
+      <td><b>${c.name}</b></td>
+      <td>${rg.name}</td>
+      <td>${TW_ROLE_LABEL[c.role] || "—"}</td>
+      <td>${c.green}</td>
+      <td>${c.plants[0]}</td>
+    </tr>`;
+  }).join("");
+PA_sortableTable("twTbl");
+</script>
+</body>
+</html>
