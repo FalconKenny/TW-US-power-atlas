@@ -21,6 +21,7 @@
         <a href="taiwan.html" ${page === "taiwan.html" ? 'class="active"' : ""}>台灣電力</a>
         <a href="americas.html" ${page === "americas.html" ? 'class="active"' : ""}>美洲電力</a>
         <a href="about.html" ${page === "about.html" ? 'class="active"' : ""}>方法與資料來源</a>
+        <a href="https://falconkenny.github.io/gf-website/" title="回 Guide.Ferryman 主站">⌂ 主站</a>
         <a class="nav-cta" href="https://falconkenny.github.io/gf-website/contact.html" target="_blank" rel="noopener">預約佈局諮詢</a>
       </div>
     </div>`;
@@ -46,6 +47,8 @@
           <li><a href="taiwan.html">台灣電力深度頁</a></li>
           <li><a href="americas.html">美洲電力深度頁</a></li>
           <li><a href="about.html">方法與資料來源</a></li>
+          <li style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(242,246,243,.18)"><a href="https://falconkenny.github.io/gf-website/">⌂ 回 Guide.Ferryman 主站</a></li>
+          <li><a href="https://falconkenny.github.io/gf-website/invest-map.html">產業投資地圖</a></li>
         </ul>
       </div>
       <div>
