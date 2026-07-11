@@ -36,9 +36,9 @@ function PA_lineChart(cfg) {
   (cfg.events || []).forEach(ev => {
     const xi = x(ev.m); if (xi == null) return;
     svg.append("line").attr("x1", xi).attr("x2", xi).attr("y1", M.t).attr("y2", H - M.b)
-      .attr("stroke", "#E8A23D").attr("stroke-width", 1.2).attr("stroke-dasharray", "3 4");
+      .attr("stroke", "#F0B429").attr("stroke-width", 1.2).attr("stroke-dasharray", "3 4");
     svg.append("text").attr("x", xi + 4).attr("y", M.t + 10)
-      .attr("font-size", 9).attr("fill", "#B0771E").attr("font-family", "var(--font-mono)")
+      .attr("font-size", 9).attr("fill", "#9C7500").attr("font-family", "var(--font-mono)")
       .text(ev.label);
   });
 
@@ -50,7 +50,7 @@ function PA_lineChart(cfg) {
     tip.className = "chart-tip"; tip.id = tipId;
     box.style.position = "relative"; box.appendChild(tip);
   }
-  const hoverLine = svg.append("line").attr("stroke", "#98A6B3").attr("y1", M.t).attr("y2", H - M.b).attr("opacity", 0);
+  const hoverLine = svg.append("line").attr("stroke", "#98A79D").attr("y1", M.t).attr("y2", H - M.b).attr("opacity", 0);
   svg.append("rect").attr("x", M.l).attr("y", M.t).attr("width", W - M.l - M.r).attr("height", H - M.t - M.b)
     .attr("fill", "transparent")
     .on("mousemove", function (event) {
@@ -98,7 +98,7 @@ function PA_weeklyChart(cfg) {
   const capLine = d3.line()
     .x((v, i) => x(d.days[i]) + x.bandwidth() / 2).y(v => y(v)).curve(d3.curveStepAfter);
   svg.append("path").attr("d", capLine(d.capacity))
-    .attr("fill", "none").attr("stroke", "#E8A23D").attr("stroke-width", 2.4).attr("stroke-dasharray", "6 4");
+    .attr("fill", "none").attr("stroke", "#F0B429").attr("stroke-width", 2.4).attr("stroke-dasharray", "6 4");
 
   /* 備轉率標籤（若有） */
   if (d.reservePct) {

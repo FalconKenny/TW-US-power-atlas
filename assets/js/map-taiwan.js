@@ -10,7 +10,7 @@
     green:   "#3FA66A",  // 綠能重鎮：綠
     load:    "#8E6FC0",  // 負載中心：紫
     balanced:"#2C6EA8",
-    islands: "#4E6B84"
+    islands: "#4F6B5C"
   };
 
   function buildSelector() {
@@ -49,7 +49,7 @@
         <span class="chip ${region.balance.includes("不") ? "red" : "green"}">${region.balance}</span>
         <span class="chip amber">${region.flow}</span>
       </div>
-      <p style="font-size:14px;color:#33475C;margin-top:12px">${c.note}</p>
+      <p style="font-size:14px;color:#33463B;margin-top:12px">${c.note}</p>
       <p class="notice" style="margin-top:12px">來源：台電、經濟部能源署公開資料整理</p>`;
   };
 
@@ -69,7 +69,7 @@
       .attr("data-code", d => d.properties.COUNTYCODE)
       .attr("fill", d => {
         const c = TW_COUNTIES[d.properties.COUNTYCODE];
-        return c ? ROLE_COLOR[c.role] || "#1B4573" : "#10294A";
+        return c ? ROLE_COLOR[c.role] || "#1E6047" : "#0F3527";
       })
       .on("mousemove", function (event, d) {
         const code = d.properties.COUNTYCODE;
@@ -106,7 +106,7 @@
     buildSelector();
     showCounty("68000"); // 預設：桃園（北部供電支柱）
   }).catch(() => {
-    mount.innerHTML = `<p style="color:#C4D2DE;font-size:14px;padding:20px">台灣地圖載入失敗，請改用右側選單選擇縣市。</p>`;
+    mount.innerHTML = `<p style="color:#C4D6C8;font-size:14px;padding:20px">台灣地圖載入失敗，請改用右側選單選擇縣市。</p>`;
     buildSelector();
   });
 })();

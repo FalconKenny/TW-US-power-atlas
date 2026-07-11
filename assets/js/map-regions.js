@@ -6,7 +6,7 @@
   if (typeof d3 === "undefined" || typeof topojson === "undefined") return;
 
   const RAMP_PRICE = d3.interpolateRgbBasis(["#2C7A4B", "#E3B94F", "#C94F4F"]);
-  const RAMP_REN   = d3.interpolateRgbBasis(["#10294A", "#0FA3A8", "#3FA66A"]);
+  const RAMP_REN   = d3.interpolateRgbBasis(["#0F3527", "#0E9E86", "#3FA66A"]);
 
   const REGIONS = {
     canada: {
@@ -42,7 +42,7 @@
           <div class="cell"><small>主要電源</small><b style="font-size:13.5px;line-height:1.5">${d.main}</b></div>
         </div>
         <div class="chip-row"><span class="chip">台灣供應鏈連結重點</span></div>
-        <p style="font-size:14px;color:#33475C;margin-top:10px">${d.tw}</p>
+        <p style="font-size:14px;color:#33463B;margin-top:10px">${d.tw}</p>
         <p class="notice" style="margin-top:12px">來源：${d.utility.split("（")[0]}、CER 公開資料整理（¢CAD；概算 1 CAD ≈ 23 TWD）</p>`
     },
 
@@ -107,7 +107,7 @@
         <li><b>主要電源：</b>${d.main}</li>
       </ul>
       <div class="chip-row"><span class="chip">台灣供應鏈連結重點</span></div>
-      <p style="font-size:14px;color:#33475C;margin-top:10px">${d.tw}</p>
+      <p style="font-size:14px;color:#33463B;margin-top:10px">${d.tw}</p>
       <p class="notice" style="margin-top:12px">來源：${d.source}（¢USD；概算 1 USD ≈ 32 TWD）</p>`;
   }
 
@@ -116,10 +116,10 @@
   function color(regionKey, id) {
     const R = REGIONS[regionKey], st = state[regionKey];
     const d = R.data()[id];
-    if (!d) return "#10294A";
+    if (!d) return "#0F3527";
     const m = R.modes[st.mode];
     const v = m.val(d);
-    if (v == null) return "#4E6B84"; // 資料有限：岸線灰
+    if (v == null) return "#4F6B5C"; // 資料有限：岸線灰
     const t = Math.max(0, Math.min(1, (v - m.domain[0]) / (m.domain[1] - m.domain[0])));
     return m.ramp(t);
   }
@@ -222,7 +222,7 @@
       repaint(regionKey);
       showRegionItem(regionKey, R.defaultKey);
     }).catch(() => {
-      mount.innerHTML = `<p style="color:#C4D2DE;font-size:14px;padding:20px">地圖載入失敗，請改用右側選單選擇。</p>`;
+      mount.innerHTML = `<p style="color:#C4D6C8;font-size:14px;padding:20px">地圖載入失敗，請改用右側選單選擇。</p>`;
     });
   };
 

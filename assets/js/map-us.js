@@ -13,13 +13,13 @@
     iPrice: { label: "工業電價", unit: "¢/kWh", domain: [6, 24],
       scale: d3.interpolateRgbBasis(["#2C7A4B", "#E3B94F", "#C94F4F"]) },
     ren:    { label: "綠電占比", unit: "%", domain: [0, 100],
-      scale: d3.interpolateRgbBasis(["#10294A", "#0FA3A8", "#3FA66A"]) }
+      scale: d3.interpolateRgbBasis(["#0F3527", "#0E9E86", "#3FA66A"]) }
   };
   let paths = null, tip = null;
 
   function color(fips) {
     const s = US_STATES[fips];
-    if (!s) return "#10294A";
+    if (!s) return "#0F3527";
     const m = MODES[mode];
     const v = s[mode];
     const t = Math.max(0, Math.min(1, (v - m.domain[0]) / (m.domain[1] - m.domain[0])));
@@ -72,7 +72,7 @@
         <div class="cell"><small>主要電源</small><b style="font-size:13.5px;line-height:1.5">${s.main}</b></div>
       </div>
       <div class="chip-row"><span class="chip">台灣供應鏈連結重點</span></div>
-      <p style="font-size:14px;color:#33475C;margin-top:10px">${s.tw}</p>
+      <p style="font-size:14px;color:#33463B;margin-top:10px">${s.tw}</p>
       <p class="notice" style="margin-top:12px">來源：EIA State Electricity Profiles、各州電力公司</p>`;
   };
 
@@ -94,7 +94,7 @@
         const s = US_STATES[d.id];
         if (!s) { tip.style.opacity = 0; return; }
         tip.innerHTML = `
-          <div class="t-name">${s.name} <span class="mono" style="font-size:11px;color:#5B6B7C">${s.abbr}</span></div>
+          <div class="t-name">${s.name} <span class="mono" style="font-size:11px;color:#5C6E62">${s.abbr}</span></div>
           <div class="t-en">${s.en}</div>
           ${PA_tipRow("住宅電價", s.rPrice.toFixed(1) + " ¢/kWh")}
           ${PA_tipRow("工業電價", s.iPrice.toFixed(1) + " ¢/kWh")}
@@ -122,7 +122,7 @@
     repaint();
     showUsState("48"); // 預設：德州（台商赴美最熱區）
   }).catch(() => {
-    mount.innerHTML = `<p style="color:#C4D2DE;font-size:14px;padding:20px">美國地圖載入失敗，請改用右側選單選擇州別。</p>`;
+    mount.innerHTML = `<p style="color:#C4D6C8;font-size:14px;padding:20px">美國地圖載入失敗，請改用右側選單選擇州別。</p>`;
     buildSelector();
   });
 })();

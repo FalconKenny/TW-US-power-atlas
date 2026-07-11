@@ -48,8 +48,8 @@
         <text class="route-label" x="84" y="332">121°E</text>
         <text class="route-label" x="324" y="332">112°W</text>
         <!-- 台灣端 -->
-        <circle cx="80" cy="200" r="7" fill="#E8A23D"/>
-        <circle cx="80" cy="200" r="13" fill="none" stroke="#E8A23D" stroke-opacity=".4">
+        <circle cx="80" cy="200" r="7" fill="#F0B429"/>
+        <circle cx="80" cy="200" r="13" fill="none" stroke="#F0B429" stroke-opacity=".4">
           <animate attributeName="r" values="9;18;9" dur="3s" repeatCount="indefinite"/>
           <animate attributeName="stroke-opacity" values=".5;0;.5" dur="3s" repeatCount="indefinite"/>
         </circle>
@@ -59,13 +59,13 @@
         <path class="route-path" d="M84 196 C 170 90, 300 80, 396 118"/>
         <path class="route-volt" d="M84 204 C 180 130, 300 120, 392 132"/>
         <!-- 塔架記號 -->
-        <g stroke="#0FA3A8" stroke-width="1.4" opacity=".85">
+        <g stroke="#0E9E86" stroke-width="1.4" opacity=".85">
           <path d="M198 96 l6 14 M204 96 l-6 14 M196 103 h10" fill="none"/>
           <path d="M300 84 l6 14 M306 84 l-6 14 M298 91 h10" fill="none"/>
         </g>
         <!-- 美洲端 -->
-        <circle cx="396" cy="122" r="7" fill="#0FA3A8"/>
-        <circle cx="396" cy="122" r="13" fill="none" stroke="#0FA3A8" stroke-opacity=".4">
+        <circle cx="396" cy="122" r="7" fill="#0E9E86"/>
+        <circle cx="396" cy="122" r="13" fill="none" stroke="#0E9E86" stroke-opacity=".4">
           <animate attributeName="r" values="9;18;9" dur="3s" begin="1.5s" repeatCount="indefinite"/>
           <animate attributeName="stroke-opacity" values=".5;0;.5" dur="3s" begin="1.5s" repeatCount="indefinite"/>
         </circle>
@@ -119,7 +119,7 @@
           <span class="lg"><span class="sw" style="background:#3FA66A"></span>綠能重鎮</span>
           <span class="lg"><span class="sw" style="background:#8E6FC0"></span>負載中心</span>
           <span class="lg"><span class="sw" style="background:#2C6EA8"></span>供需並重</span>
-          <span class="lg"><span class="sw" style="background:#4E6B84"></span>離島獨立電網</span>
+          <span class="lg"><span class="sw" style="background:#4F6B5C"></span>離島獨立電網</span>
         </div>
       </div>
       <div>
@@ -181,8 +181,8 @@
       <div class="chart-card">
         <h3>🇹🇼 台灣平均電價（NT$/度）</h3>
         <div class="chart-legend">
-          <span class="lg"><span class="sw" style="background:#0FA3A8"></span>全體平均</span>
-          <span class="lg"><span class="sw" style="background:#E8A23D"></span>產業（高壓以上）</span>
+          <span class="lg"><span class="sw" style="background:#0E9E86"></span>全體平均</span>
+          <span class="lg"><span class="sw" style="background:#F0B429"></span>產業（高壓以上）</span>
           <span class="lg"><span class="sw" style="background:#8E6FC0"></span>住宅</span>
         </div>
         <div id="twTrendHome"></div>
@@ -191,7 +191,7 @@
       <div class="chart-card">
         <h3>🇺🇸 美國住宅電價（¢/kWh）</h3>
         <div class="chart-legend">
-          <span class="lg"><span class="sw" style="background:#0FA3A8"></span>全美平均</span>
+          <span class="lg"><span class="sw" style="background:#0E9E86"></span>全美平均</span>
           <span class="lg"><span class="sw" style="background:#C94F4F"></span>加州</span>
           <span class="lg"><span class="sw" style="background:#3F86C8"></span>德州</span>
           <span class="lg"><span class="sw" style="background:#3FA66A"></span>喬治亞</span>
@@ -216,7 +216,7 @@
       <p>近岸外包讓墨西哥成為台商新戰場；加拿大水電、巴西與智利的綠電走廊，則是 RE100 供應鏈的下一站。</p>
     </div>
     <div class="ctry-grid" id="ctryGrid"></div>
-    <p class="center mt-40"><a class="btn btn-ghost" style="border-color:rgba(10,28,48,.3);color:var(--ink)" href="americas.html#am-map">探索加拿大・中美洲・南美洲互動地圖 →</a></p>
+    <p class="center mt-40"><a class="btn btn-ghost" style="border-color:rgba(10,42,33,.3);color:var(--ink)" href="americas.html#am-map">探索加拿大・中美洲・南美洲互動地圖 →</a></p>
   </div>
 </section>
 
@@ -255,14 +255,14 @@ document.getElementById("ctryGrid").innerHTML = AMERICAS_COUNTRIES.slice(0, 4)
 PA_lineChart({ el: "twTrendHome", months: TREND_MONTHS, unit: " NT$/度",
   yFmt: d => "NT$" + d,
   series: [
-    { name: "全體平均", color: "#0FA3A8", values: TW_PRICE_TREND.avg },
-    { name: "產業", color: "#E8A23D", values: TW_PRICE_TREND.industrial },
+    { name: "全體平均", color: "#0E9E86", values: TW_PRICE_TREND.avg },
+    { name: "產業", color: "#F0B429", values: TW_PRICE_TREND.industrial },
     { name: "住宅", color: "#8E6FC0", values: TW_PRICE_TREND.residential }
   ], events: TW_PRICE_TREND.events });
 PA_lineChart({ el: "usTrendHome", months: TREND_MONTHS, unit: " ¢/kWh",
   yFmt: d => d + "¢",
   series: [
-    { name: "全美平均", color: "#0FA3A8", values: US_PRICE_TREND.usAvg },
+    { name: "全美平均", color: "#0E9E86", values: US_PRICE_TREND.usAvg },
     { name: "加州", color: "#C94F4F", values: US_PRICE_TREND.CA },
     { name: "德州", color: "#3F86C8", values: US_PRICE_TREND.TX },
     { name: "喬治亞", color: "#3FA66A", values: US_PRICE_TREND.GA }

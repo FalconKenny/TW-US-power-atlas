@@ -79,7 +79,7 @@
           <span class="lg"><span class="sw" style="background:#3FA66A"></span>綠能重鎮</span>
           <span class="lg"><span class="sw" style="background:#8E6FC0"></span>負載中心</span>
           <span class="lg"><span class="sw" style="background:#2C6EA8"></span>供需並重</span>
-          <span class="lg"><span class="sw" style="background:#4E6B84"></span>離島獨立電網</span>
+          <span class="lg"><span class="sw" style="background:#4F6B5C"></span>離島獨立電網</span>
         </div>
       </div>
       <div>
@@ -116,7 +116,7 @@
       <h3>🇹🇼 台灣・代表夏季週系統供需（GW）</h3>
       <div class="chart-legend">
         <span class="lg"><span class="sw" style="background:#3F86C8"></span>尖峰負載</span>
-        <span class="lg"><span class="sw" style="background:#E8A23D"></span>系統供電能力</span>
+        <span class="lg"><span class="sw" style="background:#F0B429"></span>系統供電能力</span>
         <span class="lg"><span class="sw" style="background:#2C7A4B"></span>備轉容量率（%）</span>
       </div>
       <div id="twWeekly"></div>
@@ -136,8 +136,8 @@
     <div class="chart-card">
       <h3>🇹🇼 台灣電價（NT$/度）</h3>
       <div class="chart-legend">
-        <span class="lg"><span class="sw" style="background:#0FA3A8"></span>全體平均</span>
-        <span class="lg"><span class="sw" style="background:#E8A23D"></span>產業（高壓以上）</span>
+        <span class="lg"><span class="sw" style="background:#0E9E86"></span>全體平均</span>
+        <span class="lg"><span class="sw" style="background:#F0B429"></span>產業（高壓以上）</span>
         <span class="lg"><span class="sw" style="background:#8E6FC0"></span>住宅</span>
       </div>
       <div id="twTrendFull"></div>
@@ -234,8 +234,8 @@ PA_weeklyChart({ el: "twWeekly", data: TW_WEEKLY });
 PA_lineChart({ el: "twTrendFull", months: TREND_MONTHS, unit: " NT$/度",
   yFmt: d => "NT$" + d,
   series: [
-    { name: "全體平均", color: "#0FA3A8", values: TW_PRICE_TREND.avg },
-    { name: "產業", color: "#E8A23D", values: TW_PRICE_TREND.industrial },
+    { name: "全體平均", color: "#0E9E86", values: TW_PRICE_TREND.avg },
+    { name: "產業", color: "#F0B429", values: TW_PRICE_TREND.industrial },
     { name: "住宅", color: "#8E6FC0", values: TW_PRICE_TREND.residential }
   ], events: TW_PRICE_TREND.events });
 
